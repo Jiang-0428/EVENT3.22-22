@@ -41,6 +41,7 @@ public class ConferenceEvent extends Event{
         super.calculateEventCost();
         conferenceEventCost = getEventCost() + ((breakfastCost + lunchCost + dinnerCost) * getTotalParticipants() * getTotalEventDays());
     }
+    
 
 
     @Override
