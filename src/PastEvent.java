@@ -1,14 +1,84 @@
-public class PastEvent extends Event{
+import java.time.LocalDate;
 
+public class PastEvent{
+
+    public static final double pastEventCost = 10_000;
+    public static final double tax = 0.3;
+
+    private LocalDate eventStartDate;
+    private LocalDate eventEndDate;
     private String paymentStatus;
     private boolean requiresExtension;
     private String paymentDetails;
-    private double pastEventCost;
+    private String eventID;
+    private String eventName;
+    private String eventLocation;
+    private String pointOfContact;
+    private int totalParticipants;
+    private int totalEventDays;
+    //private double pastEventCost;
 
-    public PastEvent(String eventID, String eventName, String eventLocation, String pointOfContact, int totalParticipants, int totalEventDays) {
-
-        super(eventID, eventName, eventLocation, pointOfContact, totalParticipants, totalEventDays);
+    public PastEvent(String eventID, String eventName, String eventLocation, String pointOfContact, int totalParticipants, int totalEventDays,LocalDate eventStartDate, LocalDate eventEndDate, String paymentStatus, boolean requiresExtension) {
+        //super(eventID, eventName, eventLocation, pointOfContact, totalParticipants, totalEventDays);
+        this.eventID = eventID;
+        this.eventName = eventName;
+        this.eventLocation = eventLocation;
+        this.pointOfContact = pointOfContact;
+        this.totalParticipants = totalParticipants;
+        this.totalEventDays = totalEventDays;
+        this.eventStartDate = eventStartDate;
+        this.eventEndDate = eventEndDate;
+        this.paymentStatus = paymentStatus;
+        this.requiresExtension = requiresExtension;
         
+    }
+
+    public String getEventID(){
+        return eventID;
+    }
+
+    public void setEventID(String eventID){
+        this.eventID = eventID;
+    }
+
+    public String getEventName(){
+        return eventName;
+    }
+
+    public void setEventName(String eventName){
+        this.eventName = eventName;
+    }
+
+    public String getEventLocation(){
+        return eventLocation;
+    }
+
+    public void setEventLocation(String location){
+        this.eventLocation = location;
+    }
+
+    public String getPointOfContact(){
+        return pointOfContact;
+    }
+
+    public void setPointOfContact(String pointOfContact){
+        this.pointOfContact = pointOfContact;
+    }
+
+    public int getTotalParticipants(){
+        return totalParticipants;
+    }
+
+    public void setTotalParticipants(int totalParticipants){
+        this.totalParticipants = totalParticipants;
+    }
+
+    public int getTotalEventDays(){
+        return totalEventDays;
+    }
+
+    public void setTotalEventDays(int totalEventDays){
+        this.totalEventDays = totalEventDays;
     }
 
     public String getPaymentStatus() {
@@ -27,10 +97,8 @@ public class PastEvent extends Event{
         this.requiresExtension = requiresExtension;
     }
 
-    @Override
     public void calculateEventCost(){
-        super.calculateEventCost();
-        pastEventCost = getEventCost();
+        double cost = 1000 + (1000 * tax);
     }
 
     public void setPaymentDetails(String paymentStatus, boolean requiresExtension) {
